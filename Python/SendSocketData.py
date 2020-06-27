@@ -12,14 +12,14 @@ baseHostname = "192.168.192.110"
 baseUrl = "http://" + baseHostname + "/api/v1/"
 smartmeterUrl = "" + baseUrl + "smartmeter?limit=1"
 
-def SendData(data):
+def SendData(hostname, port, data):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((serverHostname, serverPort))
+    s.connect((hostname, port))
     s.sendall(data.encode())
     s.close()
 
 def main():
-    SendData(GetData(smartmeterUrl))
+    SendData(serverHostname, serverPort, GetData(smartmeterUrl))
 
 if __name__ == "__main__":
     main()
