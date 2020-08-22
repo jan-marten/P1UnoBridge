@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "./HelloWorld"
+		},
+		{
+			"path": "./Ontwikkelbord",
+		},
+		{
+			"path": "./Python",
+		},
+		{
+			"path": "./SimpleTcpServer"
+		}
+	],
+	"settings": {		
+	},
+	"extensions": {
+	}
+}
