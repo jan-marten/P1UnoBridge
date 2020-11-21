@@ -23,7 +23,6 @@ void init_INT(void){
 	
 }
 
-
 void init_Timer0(void){
 	T0CON = 0xFF;
 }
@@ -81,8 +80,5 @@ void init_INT_Usart1()
 	
 	PIE1	= 0x20; // hier zit usart ook in: RX wel, TX geen interrupt
 	//PIE1	= 0x00; // hier zit usart ook in: RX wel, TX geen interrupt
-	
-	
-	
 	
 }

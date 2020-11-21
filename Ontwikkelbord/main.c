@@ -100,16 +100,15 @@ void main(void) {
 	CommandLcd(LCD_STDENTRY);
 	CommandLcd(LCD_ON);  
 	CommandLcd(LCD_CLS); 
-	SendLcd("Typmaschien v0.0.2A ",20); //regel 1
-	SendLcd("info@regeling.com   ",20); //regel 3
-	SendLcd("J.M. Regeling       ",20); //regel 2
-	SendLcd("http://regeling.com ",20); //regel 4
+	SendLcd("Typmaschien v0.0.2A ", 20); //regel 1
+	SendLcd("info@regeling.com   ", 20); //regel 3
+	SendLcd("J.M. Regeling       ", 20); //regel 2
+	SendLcd("http://regeling.com ", 20); //regel 4
 
 	//initialize keyboard
-	init_KeyBoard();
+	initKeyboard();
 	
 	init_INT();
-
 
 	while(1) {
 		if (key != KEYBOARD_UNDEFINED_STATE) { //0xFF) {
@@ -166,7 +165,7 @@ void interrupt interrupt_handler(void) {
 		//Toggle(RE0);
 		send_string_UART_int("intK");
 		GIE = 0; // disable interupts
-		key = leesToetsAanslag();
+		key = readKeyboard();
 		//send_byte_UART_int('k'); //just to check if this routine is executed
 		INT0IF = 0; //clear interrupt flag
 		GIE = 1; // enable interupts

@@ -7,7 +7,7 @@
 			"path": "./HelloWorld"
 		},
 		{
-			"path": "./Ontwikkelbord",
+			"path": "./Ontwikkelbord"
 		},
 		{
 			"path": "./Python",
@@ -17,6 +17,7 @@
 		}
 	],
 	"settings": {		
+		"C_Cpp.default.includePath": [ "C:/HTSOFT/PIC18/include" ]
 	},
 	"extensions": {
 	}

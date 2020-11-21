@@ -3,7 +3,7 @@
 
 
 /*********************  leesKeyBoard :: ISR  ******************************/
-unsigned char leesToetsAanslag(void) {
+unsigned char readKeyboard(void) {
 	//
 	//	Leest het toetsenbord uit zodra er een toetsaanslag is geweest.
 	//
@@ -49,20 +49,19 @@ unsigned char leesToetsAanslag(void) {
 		//key = 0x10; // Not possible!
 	//	key = KEYBOARD_UNDEFINED_STATE; // No button is pressed.
 	//}
-
 	
-	init_KeyBoard();
+	initKeyboard();
 	return key;
 }
 
 void enableKeyboard(void) {
-	// toest is afgehandeld
+	// toets is afgehandeld
 	//IE1 = 0; // reset interrupt
 	//EX1 = 1; // interrupt enable
 	//key = KEYBOARD_UNDEFINED_STATE;
 }
 
-void init_KeyBoard(void) {
+void initKeyboard(void) {
 	TRISD = 0x0F; 
 	PORTD = 0x00; 
 }

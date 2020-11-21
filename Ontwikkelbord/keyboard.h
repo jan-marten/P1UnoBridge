@@ -27,15 +27,6 @@ Log:
 #define KEYBOARD_Y2	RD6
 #define KEYBOARD_Y3	RD7
 
-//#define KEYBOARD_Y0	RB0
-//#define KEYBOARD_Y1	RB1
-//#define KEYBOARD_Y2	RB2
-//#define KEYBOARD_Y3	RB3
-//#define KEYBOARD_X0	RB4
-//#define KEYBOARD_X1	RB5
-//#define KEYBOARD_X2	RB6
-//#define KEYBOARD_X3	RB7
-
 #define KEYBOARD_UNDEFINED_STATE 0xFF
 
 #define KEY_1		0x01
@@ -57,6 +48,6 @@ Log:
 
 #define ENABLE_KEYBOARD_FUNCTION 1
 
-void init_KeyBoard(void);
-unsigned char leesToetsAanslag(void);
+void initKeyboard(void);
+unsigned char readKeyboard(void);
 void enableKeyboard(void);
