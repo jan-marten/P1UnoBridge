@@ -7,12 +7,13 @@
 
 #define	LCDE		RA5  		/*Lcd Enable signal*/	
 //#define	LCDRW		RAx			/*Lcd R/W signal*/
-#define	LCDRS		RA4    		/*Lcd RS signal*/
+//#define	LCDRS		RA4    		/*Lcd RS signal*/
+#define LCDRS RA4_bit
 
-#define	LCD4		RA0     	/*Lcd data bus*/
-#define	LCD5		RA1      	/*Lcd data bus*/
-#define	LCD6		RA3        	/*Lcd data bus*/
-#define	LCD7		RA2        	/*Lcd data bus*/
+#define	LCD4		RA0_bit     	/*Lcd data bus*/
+#define	LCD5		RA1_bit      	/*Lcd data bus*/
+#define	LCD6		RA3_bit        	/*Lcd data bus*/
+#define	LCD7		RA2_bit        	/*Lcd data bus*/
 
 #define	LCDRESTIME	11000 		/*reset sequence delay=16ms*/
 #define	LCDCOMTIME	1400		/*command delay=2ms*/
@@ -31,7 +32,7 @@ be configured for one/two line and entry mode etc.*/
 void InitLcd (void)
 {                                          
 	/*select instruction register*/
-	LCDRS=0;
+	LCDRS(0);
 	    
 	/*make sure E is set alright*/
 	NibbleLcd(0x00);
@@ -53,7 +54,7 @@ void InitLcd (void)
 void CommandLcd (unsigned char command)
 {
 	/*select instruction register*/
-	LCDRS=0;                     
+	LCDRS(0);                     
     
     /*write high nibble*/
     NibbleLcd(command/16);
@@ -68,7 +69,7 @@ void CommandLcd (unsigned char command)
 void SendLcd (const unsigned char *data, unsigned char length)
 {
 	/*select data register*/
-	LCDRS=1;                      
+	LCDRS(1);
     
     while(length--)
     {
@@ -89,30 +90,30 @@ void SendLcd (const unsigned char *data, unsigned char length)
 void NibbleLcd (unsigned char data)
 {
 	/*set data*/    
-	LCD4=0;
-	LCD5=0;
-	LCD6=0;
-	LCD7=0;
+	LCD4(0);
+	LCD5(0);
+	LCD6(0);
+	LCD7(0);
 	if(data&0x01)
-		LCD4=1;
+		LCD4(1);
 	if(data&0x02)
-		LCD5=1;
+		LCD5(1);
 	if(data&0x04)
-		LCD6=1;
+		LCD6(1);
 	if(data&0x08)
-		LCD7=1;
+		LCD7(1);
 		
 	/*select write mode*/
 	//LCDRW=0; //already 0
 
 	/*pulse E*/
-	LCDE=1;
+	LCDE(1);
 	asm("nop");
 	asm("nop");
 	asm("nop");
 	asm("nop");
 	asm("nop");
-	LCDE=0;
+	LCDE(0);
 }                                 
 
 /*wait some time*/      
