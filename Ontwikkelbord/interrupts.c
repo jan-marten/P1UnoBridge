@@ -1,7 +1,3 @@
-/*
-	interrupts.c
-*/
-
 #include "interrupts.h"
 
 void init_INT(void){

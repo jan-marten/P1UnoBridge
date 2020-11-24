@@ -1,0 +1,7 @@
+main.c: 154: redundant & applied to array (warning)
+main.c: 165: illegal conversion between pointer types (warning)
+main.c: 176: illegal conversion between pointer types (warning)
+main.c: 179: redundant & applied to array (warning)
+main.c: 180: illegal conversion between pointer types (warning)
+main.c: 186: illegal conversion between pointer types (warning)
+delay.c: 16: arithmetic overflow in constant expression (warning)

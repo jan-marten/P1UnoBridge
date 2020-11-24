@@ -30,31 +30,31 @@
 #define	MHZ	*1
 
 #ifndef	XTAL_FREQ
-#define	XTAL_FREQ	4MHZ		/* Crystal frequency in MHz */
+#define	XTAL_FREQ 4MHZ /* Crystal frequency in MHz */
 #endif
 
 #if	XTAL_FREQ < 8MHZ
-#define	uS_CNT 	238			/* 4x to make 1 mSec */
+#define	uS_CNT 238 /* 4x to make 1 mSec */
 #endif
 
 #if	XTAL_FREQ == 8MHZ
-#define uS_CNT  244
+#define uS_CNT 244
 #endif
 
 #if	XTAL_FREQ > 8MHZ
-#define uS_CNT  246
+#define uS_CNT 246
 #endif
 
-#define FREQ_MULT	(XTAL_FREQ)/(4MHZ)
+#define FREQ_MULT (XTAL_FREQ) / (4MHZ)
 
-#define	DelayUs(x)	{ unsigned char _dcnt; \
-			  if(x>=4) _dcnt=(x*(FREQ_MULT)/2); \
-			  else _dcnt=1; \
-			  while(--_dcnt > 0) \
-				{\
-				asm("nop");\
-				asm("nop");\
-				continue; }\
-		} 
+#define	DelayUs(x) { unsigned char _dcnt; \
+    if(x>=4) _dcnt=(x*(FREQ_MULT)/2); \
+    else _dcnt=1; \
+    while(--_dcnt > 0) \
+    {\
+        asm("nop");\
+        asm("nop");\
+        continue; }\
+    } 
 
 extern void DelayMs(unsigned char);

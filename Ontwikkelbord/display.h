@@ -1,5 +1,5 @@
-#ifndef LCD_H_INCLUDED
-#define LCD_H_INCLUDED      
+#ifndef DISPLAY_H_INCLUDED
+#define DISPLAY_H_INCLUDED      
 
 #define	LCD_CLS			0x01 	/*Clear screen*/
 #define	LCD_HOME		0x02  	/*Cursor home*/
@@ -8,9 +8,8 @@
 #define	LCD_TWOLINE		0x28   	/*select 2 line display*/
 #define	LCD_ON			0x0c  	/*switch lcd on*/
 
-void InitLcd (void);
-void CommandLcd (unsigned char command);
-void SendLcd (const unsigned char *data, unsigned char length);
-
-void SendLinesLcd(unsigned char *, unsigned char *, unsigned char *, unsigned char *);
+void DisplayInit(void);
+void DisplayCommand(unsigned char command);
+void DisplaySend(const unsigned char *data, unsigned char length);
+void DisplaySendLines(unsigned char *, unsigned char *, unsigned char *, unsigned char *);
 #endif

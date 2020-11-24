@@ -1,13 +1,11 @@
-
 #include "keyboard.h"
 
+void KeyboardInit(void) {
+	TRISD = 0x0F; 
+	PORTD = 0x00; 
+}
 
-/*********************  leesKeyBoard :: ISR  ******************************/
-unsigned char readKeyboard(void) {
-	//
-	//	Leest het toetsenbord uit zodra er een toetsaanslag is geweest.
-	//
-
+unsigned char KeyboardRead(void) {
 	unsigned char key;
 	key = KEYBOARD_UNDEFINED_STATE;
 	DelayMs(10); // anti-dender wachten
@@ -45,23 +43,7 @@ unsigned char readKeyboard(void) {
 		if (!KEYBOARD_Y2) key = KEY_C;
 		if (!KEYBOARD_Y3) key = KEY_D;
 	} 
-	//else {
-		//key = 0x10; // Not possible!
-	//	key = KEYBOARD_UNDEFINED_STATE; // No button is pressed.
-	//}
 	
-	initKeyboard();
+	KeyboardInit();
 	return key;
-}
-
-void enableKeyboard(void) {
-	// toets is afgehandeld
-	//IE1 = 0; // reset interrupt
-	//EX1 = 1; // interrupt enable
-	//key = KEYBOARD_UNDEFINED_STATE;
-}
-
-void initKeyboard(void) {
-	TRISD = 0x0F; 
-	PORTD = 0x00; 
 }

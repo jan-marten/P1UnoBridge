@@ -14,9 +14,9 @@ Authors:
 Log:
 	10/1/2004:
 		Eerste lancering voor schakelklok
-
-
 */
+#ifndef KEYBOARD_H_INCLUDED
+#define KEYBOARD_H_INCLUDED      
 
 #define KEYBOARD_X0	RD0
 #define KEYBOARD_X1	RD1
@@ -48,6 +48,7 @@ Log:
 
 #define ENABLE_KEYBOARD_FUNCTION 1
 
-void initKeyboard(void);
-unsigned char readKeyboard(void);
-void enableKeyboard(void);
+void KeyboardInit(void);
+unsigned char KeyboardRead(void);
+
+#endif
